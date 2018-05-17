@@ -6,13 +6,13 @@
   
   change files: ~/.bashrc           add "export ROS_HOSTNAME=ubuntu   
   
-                                         export ROS_MASTER_URI=http://209.2.234.161:11311  "    in the end of this file
+  export ROS_MASTER_URI=http://209.2.234.161:11311  "    in the end of this file
                                          
-                                         (where the ros_hostname correspond to the computer itself but master_uri correspond to the
+  (where the ros_hostname correspond to the computer itself but master_uri correspond to the
                                          
-                                         only IP address,ie http://209.2.234.161 is the address of raspberry pi,I want to use raspy
+  only IP address,ie http://209.2.234.161 is the address of raspberry pi,I want to use raspy
                                          
-                                         as the master pc, so both raspy and another pc has to write:
+  as the master pc, so both raspy and another pc has to write:
                                         
-                                         export ROS_MASTER_URI=http://209.2.234.161:11311 ,11311 is a must.
+  export ROS_MASTER_URI=http://209.2.234.161:11311 ,11311 is a must.
 
