@@ -8,3 +8,6 @@
                                          only IP address,ie http://209.2.234.161 is the address of raspberry pi,I want to use raspy
                                          as the master pc, so both raspy and another pc has to write:
                                          export ROS_MASTER_URI=http://209.2.234.161:11311 ,11311 is a must.
+2
+
+$2$
