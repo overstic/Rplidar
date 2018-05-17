@@ -2,9 +2,13 @@
 
 1.How to connect 2 machines in the ROS system:
 
-  change files: /etc/hosts          add the IP address and hostname of another system anywher, like :"209.2.234.161	raspberrypi"
+  change files: /etc/hosts      
   
-  change files: ~/.bashrc           add "export ROS_HOSTNAME=ubuntu   
+  add the IP address and hostname of another system anywher, like :"209.2.234.161	raspberrypi"
+  
+  change files: ~/.bashrc
+  
+  add "export ROS_HOSTNAME=ubuntu   
   
   export ROS_MASTER_URI=http://209.2.234.161:11311  "    in the end of this file
                                          
