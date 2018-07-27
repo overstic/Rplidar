@@ -1,0 +1,50 @@
+ 
+(Please catkin_make the file whenever you put a new package in catkin_workspace)
+1. open roscore
+
+2. open usb camera package
+roslaunch usb_cam usb_cam-test.launch
+
+you can get path like 
+/usb_cam/camera_info
+/usb_cam/image_raw
+(will be used in calibration and aruco )
+
+3.open ros calibration package
+
+
+rosrun camera_calibration cameracalibrator.py --size 7x7 --square 0.025 image:=/usb_cam/image_raw camera:=/usb_cam     (where 7x7 is the corner point of chess defined by yourself please do not contain the fringe. point 0.025 is 25mm the length of square )
+
+Begin calibrate until X Y is totally green you can click the button of 'calibrate' ,then click save and commit.
+
+you will get a yaml file which will be used later.
+
+
+4.Download right ros aruco package  .(if you are Kinetic system, download Kinetic. Remember to catkin_make)
+change file of /aruco_ros/launch/single.launch
+
+make 2 changes.
+''
+#<remap from="/camera_info" to="/stereo/$(arg eye)/camera_info" />  
+<remap from="/camera_info" to="/usb_cam/camera_info" />  
+#<remap from="/image" to="/stereo/$(arg eye)/image_rect_color" />
+<remap from="/image" to="/usb_cam/image_raw" />
+
+''
+
+then 'roslaunch aruco_ros single.launch '
+
+
+Finally:
+
+aruco information will be produced. You can use 'rostopic list ','rostopic echo /aruco_single/result' to see the result.
+
+If you want to see the result in image:
+' rosrun image_view image_view image:=/aruco_single/result '  this can be run if you download the image_view package.
+
+
+PS: calibration is a must. Only you have the yaml file can you see the frame in the image_view, or you will see the error that tell you TF is nan . 
+
+
+
+
